@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --green-color: #00B8A9;
+    --grey-color: #676566;
+    --light-grey-color: #d6d4d5;
+}
+
+html {
+    font-family: Georgia, sans-serif;
+    font-size: 16px;
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+}
+
+ul {
+    display: flex;
+    gap: 2rem;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+input, button {
+    background-color: transparent;
+}
+
+button:hover, button.active{
+    opacity: 0.5;
+}
+
+main, section, img {
+    height: 100%;
+}
+
+img {
+    width: 100%;
+}

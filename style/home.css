@@ -1,0 +1,265 @@
+@import "general.css";
+
+main {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/*
+header style
+*/
+
+header {
+    position: absolute;
+    left: 2vw;
+    top: 10vh;
+    height: 7%;
+    width: auto;
+}
+#title {
+    position: relative;
+    z-index: 20;
+    margin: 1rem;
+    width: auto;
+    color: var(--green-color);
+    font-size: 3rem;
+    text-shadow: 1px 1px var(--grey-color);
+}
+
+
+/*
+nav style
+*/
+nav {
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #FFFFFF;
+}
+
+nav>ul>:nth-child(4){
+    margin-right: auto;
+}
+
+.logo {
+    font-size: 3rem;
+    color: var(--green-color);
+}
+
+.search {
+    border: 2px solid var(--green-color);
+    padding: 0.3rem;
+}
+
+.dropdown-user-menu {
+    display: flex;
+    flex-direction: column;
+    padding-right: 1rem;
+}
+
+.dropdown-content {
+    position: absolute;
+    display: none;
+    margin-right: 0.6rem;
+    background-color: #FFFFFF;;
+    text-align: center;
+    box-shadow: 0 2px 5px var(--grey-color);
+    border-radius: 5%;
+}
+
+.dropdown-content > li {
+    padding: 0.5rem;
+}
+.dropdown-content > li >a {
+    color: var(--green-color)
+}
+
+.show {
+    display: block;
+    position: absolute;
+    top: 4rem;
+    right: 0;
+}
+
+#dropdown-button {
+    font-size: 2rem;
+    transition: 0.5s;
+    color: var(--green-color);
+}
+
+.menu, .log {
+    align-self: center;
+}
+
+
+/*
+carousel style
+*/
+#slider {
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+}
+
+#slider>div:first-child{
+    z-index: 10;
+}
+
+#slider>div:nth-child(2){
+    z-index: 9;
+}
+#slider>div:nth-child(3){
+    z-index: 8;
+}
+
+.carousel-slide {
+    width: 100%;
+    position: absolute;
+    transition: all 0.5s linear;
+}
+
+.btn {
+    z-index: 10;
+    font-size: 2rem;
+    color: var(--green-color);
+    bottom: 1rem;
+    transition: all 0.5s;
+}
+
+.carousel-prev-button {
+    right: 5rem;
+}
+
+.carousel-next-button, .carousel-prev-button {
+    position: absolute;
+    text-shadow: 0.5px 0.5px var(--grey-color);
+}
+
+.carousel-next-button {
+    right: 2rem;
+}
+
+/*
+people search
+ */
+#people {
+    display: flex;
+    padding: 7.5rem 4rem 4rem 4rem;
+}
+.search-button {
+    background-color: var(--green-color);
+    border-radius: 10%;
+    color: #FFFFFF;
+    font-size: 1rem;
+    padding: 0.2rem 1rem;
+}
+
+.filter > form {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter > form > label {
+    padding: 0.5rem 2rem;
+}
+
+.filter, #people-list {
+    border: 1px solid var(--green-color);
+}
+
+.filter {
+    padding: 2rem ;
+}
+
+.filter:first-child {
+    border-right: none;
+}
+
+.filter > form > h2 {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.filter > form > button {
+    margin-top: 1rem;
+    align-self: center;
+}
+
+.operations {
+    padding: 3rem 1rem 2rem 1rem;
+    text-align: center;
+}
+
+.operations > .search-button {
+    margin: 2rem 0.2rem;
+}
+
+/*
+people list
+ */
+#people-list {
+    width: calc(100% - 10rem);
+}
+#list {
+    height: 90%;
+}
+
+#list ul {
+    flex-direction: column;
+    gap: normal;
+}
+
+.item {
+    padding: 1rem;
+    border-bottom: 1px solid var(--light-grey-color);
+}
+
+.item:last-of-type {
+    border-bottom: none;
+}
+
+.item:hover {
+    background-color: var(--light-grey-color);
+}
+
+.item li {
+    padding: 0.5rem;
+}
+
+#pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+}
+#pagination button {
+    margin: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    align-self: center;
+}
+
+/*
+footer style
+*/
+footer {
+    position: absolute;
+    bottom: 0;
+    margin: 1rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+
+}
+footer>ul {
+    justify-content: center;
+}
+
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="People management and recruitment platform for small companies">
+    <meta name="keywords" content="CRM, recruitment, people">
+    <meta name="author" content="Andreea Ioana">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  maximum-scale=1.0, user-scalable=0">
+<!--    <meta http-equiv="refresh" content="5">-->
+    <link rel="stylesheet" href="style/home.css">
+    <script src="https://kit.fontawesome.com/c5a726d03b.js" crossorigin="anonymous"></script>
+    <title>Inspire</title>
+</head>
+<body id="top">
+<nav id="main-nav">
+    <ul>
+        <li class="menu">
+            <a href="#top">
+                <i class="fa-brands fa-lastfm logo"></i>
+            </a>
+        </li>
+        <li class="menu">
+            <a href="#top">Home</a>
+        </li>
+        <li class="menu">
+            <a href="#people">People</a>
+        </li>
+        <li class="menu">
+            <a href="#">Jobs</a>
+        </li>
+        <li class="log search">
+            <form>
+                <label>
+                    <input type="text" placeholder="Search..." name="search">
+                </label>
+                <button type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </li>
+        <li class="log dropdown-user-menu">
+            <button id="dropdown-button" class="btn">
+                <i class="fa-solid fa-circle-user"></i>
+            </button>
+            <ul class="dropdown-content" id="dropdown-menu">
+                <li>
+                    <a href="#">Account</a>
+                </li>
+                <li>
+                    <a href="#">Log in</a>
+                </li>
+                <li>
+                    <a href="#">Sing up</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<header>
+    <h1 id="title">Recruitment platform</h1>
+</header>
+<main>
+    <section id="slider">
+        <div class="carousel-slide">
+            <img src="images/slide1.jpg" alt="A desk with a resume and a laptop">
+        </div>
+        <div class="carousel-slide">
+            <img src="images/slide2.jpg" alt="A woman who is writing on sticky note">
+        </div>
+        <div class="carousel-slide">
+            <img src="images/slide3.jpg" alt="Two man in an interview">
+        </div>
+        <button class="carousel-next-button btn">
+            <i class="fa-solid fa-circle-chevron-right"></i>
+        </button>
+        <button class="carousel-prev-button btn">
+            <i class="fa-solid fa-circle-chevron-left"></i>
+        </button>
+    </section>
+    <section id="people">
+        <aside class="filter filter-people">
+            <form>
+                <h2>Candidates filter</h2>
+                <label>Name
+                    <input type="text" name="name" class="search">
+                </label>
+                <label>Job
+                    <input type="text" name="job" class="search">
+                </label>
+                <label>Status
+                    <input type="text" name="status" class="search">
+                </label>
+                <button type="submit" value="submit" class="btn search-button">Find</button>
+            </form>
+            <article class="operations">
+                <h2>Operations</h2>
+                <button type="submit" value="submit" class="btn search-button">
+                    <i class="fa-solid fa-user-plus"></i>
+                </button>
+                <button type="submit" value="submit" class="btn search-button">
+                    <i class="fa-solid fa-user-pen"></i>
+                </button>
+                <button type="submit" value="submit" class="btn search-button">
+                    <i class="fa-solid fa-user-xmark"></i>
+                </button>
+            </article>
+        </aside>
+        <section id="people-list">
+            <div class="list" id="list"></div>
+            <div class="page-numbers" id="pagination"></div>
+        </section>
+    </section>
+</main>
+<footer>
+    <ul>
+        <li class="terms"><a href="#">Privacy Policy</a></li>
+        <li class="terms"><a href="#">Contact</a></li>
+        <li class="terms">&copy; 2022 All rights reserved</li>
+    </ul>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
