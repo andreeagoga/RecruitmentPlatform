@@ -4,6 +4,7 @@ Dropdown user menu
 const dropdownButton = document.getElementById('dropdown-button');
 const dropdownList = document.getElementsByClassName('dropdown-content');
 const dropdownMenu = document.getElementById('dropdown-menu');
+const dropdown = document.getElementById('dropdown-user-menu');
 
 function showDropdown() {
     dropdownMenu.classList.toggle('show');
@@ -22,30 +23,7 @@ function hideDropdown(event) {
 }
 
 dropdownButton.addEventListener("click", showDropdown);
-window.addEventListener("mouseout", hideDropdown);
-
-/*
-Navbar jump to sections
- */
-// let navbar = document.getElementById("main-nav");
-// let viewportHeight = window.innerHeight;
-// let navHeight = document.getElementById("main-nav").offsetHeight;
-//
-// let navbarLinks = document.querySelectorAll("nav ul li a");
-// console.log(navbarLinks);
-//
-// window.addEventListener("scroll", e => {
-//     scrollpos = window.scrollY;
-//     navbarLinks.forEach(link => {
-//         let section = document.querySelector(link.hash);
-//         if (section.offsetTop <= scrollpos + 150 &&
-//             section.offsetTop + section.offsetHeight > scrollpos + 150) {
-//             link.classList.add("active");
-//         } else {
-//             link.classList.remove("active");
-//         }
-//     });
-// });
+window.addEventListener("mousedown", hideDropdown);
 
 /*
 Carousel
@@ -221,7 +199,7 @@ function displayList(items, wrapper, rowPerPage, page) {
 displayList(people, peopleListUl, rows, currentPage);
 
 /*
-buttons pagination
+pagination buttons
  */
 function setupPage(items, wrapper, rows) {
     wrapper.innerHTML = "";
@@ -250,5 +228,6 @@ function pageButtons(page, items) {
     });
     return button;
 }
+
 
 setupPage(people, pagination, rows);

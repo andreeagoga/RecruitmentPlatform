@@ -7,9 +7,9 @@
     <meta name="author" content="Andreea Ioana">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,  maximum-scale=1.0, user-scalable=0">
 <!--    <meta http-equiv="refresh" content="5">-->
-    <link rel="stylesheet" href="style/home.css">
+    <link rel="stylesheet" href="style/main.css">
     <script src="https://kit.fontawesome.com/c5a726d03b.js" crossorigin="anonymous"></script>
-    <title>Inspire</title>
+    <title>Recruitment platform</title>
 </head>
 <body id="top">
 <nav id="main-nav">
@@ -38,7 +38,7 @@
                 </button>
             </form>
         </li>
-        <li class="log dropdown-user-menu">
+        <li class="log" id="dropdown-user-menu">
             <button id="dropdown-button" class="btn">
                 <i class="fa-solid fa-circle-user"></i>
             </button>
@@ -56,10 +56,10 @@
         </li>
     </ul>
 </nav>
-<header>
-    <h1 id="title">Recruitment platform</h1>
-</header>
 <main>
+    <header>
+        <h1 id="title">Recruitment platform</h1>
+    </header>
     <section id="slider">
         <div class="carousel-slide">
             <img src="images/slide1.jpg" alt="A desk with a resume and a laptop">
@@ -105,19 +105,19 @@
                 </button>
             </article>
         </aside>
-        <section id="people-list">
+        <article id="people-list">
             <div class="list" id="list"></div>
             <div class="page-numbers" id="pagination"></div>
-        </section>
+        </article>
     </section>
+    <footer>
+        <ul>
+            <li class="terms"><a href="#">Privacy Policy</a></li>
+            <li class="terms"><a href="#">Contact</a></li>
+            <li class="terms">&copy; 2022 All rights reserved</li>
+        </ul>
+    </footer>
 </main>
-<footer>
-    <ul>
-        <li class="terms"><a href="#">Privacy Policy</a></li>
-        <li class="terms"><a href="#">Contact</a></li>
-        <li class="terms">&copy; 2022 All rights reserved</li>
-    </ul>
-</footer>
-<script src="script.js"></script>
+<script src="main.js"></script>
 </body>
 </html>

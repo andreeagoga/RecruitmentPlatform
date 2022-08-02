@@ -1,13 +1,19 @@
 @import "general.css";
 
 main {
-    position: absolute;
+    position: relative;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    overflow: auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
 }
 
-button {
-    cursor: pointer;
+section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: start;
 }
 
 
@@ -62,7 +68,6 @@ nav>ul>:nth-child(4){
 .dropdown-user-menu {
     display: flex;
     flex-direction: column;
-    padding-right: 1rem;
 }
 
 .dropdown-content {
@@ -93,6 +98,7 @@ nav>ul>:nth-child(4){
     font-size: 2rem;
     transition: 0.5s;
     color: var(--green-color);
+    padding-right: 1rem;
 }
 
 .menu, .log {
@@ -250,7 +256,7 @@ people list
 footer style
 */
 footer {
-    position: absolute;
+    position: relative;
     bottom: 0;
     margin: 1rem;
     left: 50%;
