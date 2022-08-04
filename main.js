@@ -274,21 +274,20 @@ function displayJobs() {
     createList(jobs, 'job-list');
     const jobTitleElem = document.querySelectorAll('.subitem-job-list');
     let titles = extractProp(jobs, 'title');
-    let status = extractProp(jobs, 'status');
+    let statusList = extractProp(jobs, 'status');
 
     for (let i = 0; i < jobTitleElem.length; i++) {
-        // jobTitleElem[i*2].innerText = titles[i];
+        jobTitleElem[i * 2].innerHTML = titles[i];
 
-        // const intern2UL = document.createElement('ul');
-        // jobTitleElem[i*2].appendChild(intern2UL);
-        // for (let j = 0; j < Object.keys(jobTitleElem[i*2].length); j++) {
-        //     const intern2Li = document.createElement('li');
-        //     intern2UL.appendChild(intern2Li);
-        //     intern2Li.classList.add('subsubitem');
-        // }
+        const intern2UL = document.createElement('ul');
+        jobTitleElem[(i * 2) + 1].appendChild(intern2UL);
+        for (let j = 0; j < statusList.length; j++) {
+            const intern2Li = document.createElement('li');
+            intern2UL.appendChild(intern2Li);
+            intern2Li.classList.add('subitem-status');
+            // intern2Li.innerHTML = statusList.value;
+        }
     }
-
-
 }
 
 displayJobs();
