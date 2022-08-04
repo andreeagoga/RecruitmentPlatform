@@ -72,6 +72,34 @@ function goToPreviousSlide() {
 prevSlide.addEventListener("click", goToPreviousSlide);
 
 /*
+create list/ extract props general functions
+ */
+
+function extractProp(array, prop) {
+    return array.map(a => a[prop]);
+}
+
+function createList(array, containerId) {
+    let objLength = Object.keys(array[0]).length;
+    let container = document.getElementById(containerId);
+    let ulElem = document.createElement('ul');
+    ulElem.setAttribute('id', 'ul-' + containerId);
+    container.appendChild(ulElem);
+    for (let i = 0; i < array.length; i++) {
+        let liElem = document.createElement('li');
+        ulElem.appendChild(liElem);
+        liElem.classList.add('item-' + containerId);
+        const internUL = document.createElement('ul');
+        liElem.appendChild(internUL);
+        for (let j = 0; j < objLength; j++) {
+            const internLi = document.createElement('li');
+            internUL.appendChild(internLi);
+            internLi.classList.add('subitem-' + containerId);
+        }
+    }
+}
+
+/*
 people list
  */
 
@@ -130,77 +158,44 @@ const people = [
 
 ];
 
-
-// function extractProp(array, prop) {
-//     return array.map(a => a[prop]);
-// }
-
-//         // names.forEach(n => {
-//         //     const internalLi = document.createElement('li');
-//         //     internalUL.appendChild(internalLi);
-//         //     internalLi.appendChild(n);
-//         // });
-
-
 /*
 pagination list
  */
-
 const listElement = document.getElementById('list');
 const pagination = document.getElementById('pagination');
-const peopleListUl = document.createElement('ul');
-listElement.appendChild(peopleListUl);
+const peopleListUl = document.getElementById('ul-list');
 
 let currentPage = 1;
 let rows = 5;
 
-function displayList(items, wrapper, rowPerPage, page) {
+function displayPeopleList(items, wrapper, rowPerPage, page) {
     wrapper.innerHTML = "";
     page--;
 
     let start = rowPerPage * page;
     let end = start + rowPerPage;
     let paginatedItems = items.slice(start, end);
+    createList(paginatedItems, 'list');
 
+    const peopleListElem = document.querySelectorAll('.subitem-list');
+    let names = extractProp(paginatedItems, 'name');
+    let dates = extractProp(paginatedItems, 'date');
+    let jobs = extractProp(paginatedItems, 'job');
 
-    for (let i = 0; i < end; i++) {
-        let item = paginatedItems[i];
-        const peopleListLi = document.createElement('li');
-        peopleListLi.classList.add('item');
-        const internalUL = document.createElement('ul');
-        peopleListLi.appendChild(internalUL);
-
-        // for(const key in item){
-        //     console.log(item[key]);
-        //     const internalLi = document.createElement('li');
-        //     internalUL.appendChild(internalLi);
-        //     let value = document.createTextNode(item[key]);
-        //     internalLi.appendChild(value);
-        // }
-        //
-        for (let j = 0; j < Object.keys(item).length; j++) {
-            const internalLi = document.createElement('li');
-            internalLi.setAttribute('class', ('item' + j).toString());
-            internalUL.appendChild(internalLi);
-
-            let names = document.createTextNode(item.name);
-            let jobs = document.createTextNode(item.job);
-            let dates = document.createTextNode(item.date);
-
-            internalLi.appendChild(names);
-            internalLi.appendChild(jobs);
-            internalLi.appendChild(dates);
-
-            wrapper.appendChild(peopleListLi);
-        }
+    for (let i = 0; i < peopleListElem.length; i++) {
+        // peopleListElem[i * 3].innerHTML = names[i];
+        // peopleListElem[(i * 3) + 1].innerHTML = jobs[i];
+        // peopleListElem[(i * 3) + 2].innerHTML = dates[i];
     }
+
 }
 
-displayList(people, peopleListUl, rows, currentPage);
+displayPeopleList(people, listElement, rows, currentPage);
+
 
 /*
 pagination buttons
- */
+*/
 function setupPage(items, wrapper, rows) {
     wrapper.innerHTML = "";
     let counter = Math.ceil(items.length / rows);
@@ -213,6 +208,7 @@ function setupPage(items, wrapper, rows) {
 function pageButtons(page, items) {
     const button = document.createElement('button');
     button.classList.add('search-button');
+    button.classList.add('people-page-button');
     button.innerHTML = page;
 
     if (currentPage === page) {
@@ -221,13 +217,78 @@ function pageButtons(page, items) {
 
     button.addEventListener('click', function () {
         currentPage = page;
-        displayList(items, peopleListUl, rows, currentPage);
-        let currentActiveBtn = document.querySelector('#pagination button.active');
+        displayPeopleList(items, peopleListUl, rows, currentPage);
+        let currentActiveBtn = document.querySelector('#pagination button.search-button.active');
         currentActiveBtn.classList.remove('active');
         button.classList.add('active');
     });
     return button;
 }
 
-
 setupPage(people, pagination, rows);
+
+/*
+jobs list
+ */
+const jobs = [
+    {
+        title: 'Frontend developer',
+        status: {
+            newStage: 100,
+            interviewStage: 15,
+            offerStage: 3,
+            hired: 5
+        },
+    },
+    {
+        title: 'Backend developer',
+        status: {
+            newStage: 500,
+            interviewStage: 10,
+            offerStage: 5,
+            hired: 2
+        },
+    },
+    {
+        title: 'IT Recruiter',
+        status: {
+            newStage: 150,
+            interviewStage: 7,
+            offerStage: 2,
+            hired: 1
+        },
+    },
+    {
+        title: 'Fullstack developer',
+        status: {
+            newStage: 200,
+            interviewStage: 9,
+            offerStage: 2,
+            hired: 2
+        },
+    }
+];
+
+
+function displayJobs() {
+    createList(jobs, 'job-list');
+    const jobTitleElem = document.querySelectorAll('.subitem-job-list');
+    let titles = extractProp(jobs, 'title');
+    let status = extractProp(jobs, 'status');
+
+    for (let i = 0; i < jobTitleElem.length; i++) {
+        // jobTitleElem[i*2].innerText = titles[i];
+
+        // const intern2UL = document.createElement('ul');
+        // jobTitleElem[i*2].appendChild(intern2UL);
+        // for (let j = 0; j < Object.keys(jobTitleElem[i*2].length); j++) {
+        //     const intern2Li = document.createElement('li');
+        //     intern2UL.appendChild(intern2Li);
+        //     intern2Li.classList.add('subsubitem');
+        // }
+    }
+
+
+}
+
+displayJobs();

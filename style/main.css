@@ -60,6 +60,10 @@ nav>ul>:nth-child(4){
     color: var(--green-color);
 }
 
+.menu> a:hover {
+    color: var(--green-color);
+}
+
 .search {
     border: 2px solid var(--green-color);
     padding: 0.3rem;
@@ -156,7 +160,7 @@ carousel style
 /*
 people search
  */
-#people {
+#people, #jobs {
     display: flex;
     padding: 7.5rem 4rem 4rem 4rem;
 }
@@ -177,7 +181,7 @@ people search
     padding: 0.5rem 2rem;
 }
 
-.filter, #people-list {
+.filter, #people-list, #job-list {
     border: 1px solid var(--green-color);
 }
 
@@ -214,29 +218,26 @@ people list
 #people-list {
     width: calc(100% - 10rem);
 }
-#list {
-    height: 90%;
-}
 
-#list ul {
+#list ul, #ul-job-list {
     flex-direction: column;
     gap: normal;
 }
 
-.item {
+.item-list, .item-job-list {
     padding: 1rem;
     border-bottom: 1px solid var(--light-grey-color);
 }
 
-.item:last-of-type {
+.item-list:last-of-type, .item-job-list:last-of-type {
     border-bottom: none;
 }
 
-.item:hover {
+.item-list:hover, .item-job-list:hover {
     background-color: var(--light-grey-color);
 }
 
-.item li {
+.item-list li {
     padding: 0.5rem;
 }
 
@@ -251,14 +252,43 @@ people list
     padding: 0.2rem 0.5rem;
     align-self: center;
 }
+/*
+job list
+ */
+#jobs {
+    height: 100vh;
+    flex-direction: column;
+    /*padding-top: 4rem;*/
+}
+
+#job-list {
+    width: 100%;
+}
+
+#jobs .operations {
+    width: 100%;
+    text-align: right;
+    padding: 1rem;
+
+}
+
+#jobs .operations button {
+    margin-bottom: 1rem;
+}
+
+.item-job-list {
+    padding: 3rem 1rem;
+
+}
+
 
 /*
 footer style
 */
 footer {
-    position: relative;
+    position: absolute;
     bottom: 0;
-    margin: 1rem;
+    margin: 2rem;
     left: 50%;
     transform: translate(-50%, 0);
 
@@ -267,5 +297,6 @@ footer {
 footer>ul {
     justify-content: center;
 }
+
 
 

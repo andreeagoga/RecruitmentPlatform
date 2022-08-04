@@ -11,22 +11,22 @@
     <script src="https://kit.fontawesome.com/c5a726d03b.js" crossorigin="anonymous"></script>
     <title>Recruitment platform</title>
 </head>
-<body id="top">
+<body>
 <nav id="main-nav">
     <ul>
         <li class="menu">
-            <a href="#top">
+            <a href="#title">
                 <i class="fa-brands fa-lastfm logo"></i>
             </a>
         </li>
         <li class="menu">
-            <a href="#top">Home</a>
+            <a href="#title">Home</a>
         </li>
         <li class="menu">
             <a href="#people">People</a>
         </li>
         <li class="menu">
-            <a href="#">Jobs</a>
+            <a href="#jobs">Jobs</a>
         </li>
         <li class="log search">
             <form>
@@ -110,13 +110,27 @@
             <div class="page-numbers" id="pagination"></div>
         </article>
     </section>
-    <footer>
-        <ul>
-            <li class="terms"><a href="#">Privacy Policy</a></li>
-            <li class="terms"><a href="#">Contact</a></li>
-            <li class="terms">&copy; 2022 All rights reserved</li>
-        </ul>
-    </footer>
+    <section id="jobs">
+        <article id="job-list"></article>
+        <article class="operations">
+            <button type="submit" value="submit" class="btn search-button">
+                <i class="fa-solid fa-user-plus"></i>
+            </button>
+            <button type="submit" value="submit" class="btn search-button">
+                <i class="fa-solid fa-user-pen"></i>
+            </button>
+            <button type="submit" value="submit" class="btn search-button">
+                <i class="fa-solid fa-user-xmark"></i>
+            </button>
+        </article>
+        <footer>
+            <ul>
+                <li class="terms"><a href="#">Privacy Policy</a></li>
+                <li class="terms"><a href="#">Contact</a></li>
+                <li class="terms">&copy; 2022 All rights reserved</li>
+            </ul>
+        </footer>
+    </section>
 </main>
 <script src="main.js"></script>
 </body>
