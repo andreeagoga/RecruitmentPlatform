@@ -277,17 +277,43 @@ function displayJobs() {
     let statusList = extractProp(jobs, 'status');
 
     for (let i = 0; i < jobTitleElem.length; i++) {
-        jobTitleElem[i * 2].innerHTML = titles[i];
+        // jobTitleElem[i * 2].innerHTML = titles[i];
 
-        const intern2UL = document.createElement('ul');
-        jobTitleElem[(i * 2) + 1].appendChild(intern2UL);
-        for (let j = 0; j < statusList.length; j++) {
-            const intern2Li = document.createElement('li');
-            intern2UL.appendChild(intern2Li);
-            intern2Li.classList.add('subitem-status');
+        // const intern2UL = document.createElement('ul');
+        // jobTitleElem[(i * 2) + 1].appendChild(intern2UL);
+        // for (let j = 0; j < statusList.length; j++) {
+        //     const intern2Li = document.createElement('li');
+        //     intern2UL.appendChild(intern2Li);
+        //     intern2Li.classList.add('subitem-status');
             // intern2Li.innerHTML = statusList.value;
-        }
+        // }
     }
 }
 
 displayJobs();
+
+
+/*
+filter people */
+
+let peopleNames = extractProp(people, 'name');
+let peopleJobs = extractProp(people, 'job');
+let peopleDates = extractProp(people, 'date');
+const filterNameBar = document.getElementById('filter-name-bar');
+const filterJobBar = document.getElementById('filter-job-bar');
+const filterDateBar = document.getElementById('filter-date-bar');
+
+function filterItems(targetInput, array){
+    targetInput.addEventListener('keyup', (e) => {
+        const searchString = e.target.value.toLowerCase();
+        let filteredArray = array.filter(elem => {
+            return elem.toLowerCase().includes(searchString);
+        });
+        console.log(filteredArray);
+    });
+}
+
+filterItems(filterNameBar, peopleNames);
+filterItems(filterJobBar, peopleJobs);
+filterItems(filterDateBar, peopleDates);
+
