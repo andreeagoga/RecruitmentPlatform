@@ -277,7 +277,11 @@ function displayJobs() {
     let statusList = extractProp(jobs, 'status');
 
     for (let i = 0; i < jobTitleElem.length; i++) {
-        // jobTitleElem[i * 2].innerHTML = titles[i];
+        // for (let j = 0; j < titles.length; j++) {
+        //     if (i % 2 === 0) {
+        //         jobTitleElem[i].innerHTML = titles[j];
+        //     }
+        // }
 
         // const intern2UL = document.createElement('ul');
         // jobTitleElem[(i * 2) + 1].appendChild(intern2UL);
@@ -294,7 +298,8 @@ displayJobs();
 
 
 /*
-filter people */
+filter items
+ */
 
 let peopleNames = extractProp(people, 'name');
 let peopleJobs = extractProp(people, 'job');
@@ -317,3 +322,18 @@ filterItems(filterNameBar, peopleNames);
 filterItems(filterJobBar, peopleJobs);
 filterItems(filterDateBar, peopleDates);
 
+/*
+operation box
+ */
+// const peopleSection = document.getElementById('people');
+// function createBoxOperation(placeToCreate){
+//     const box = document.createElement('section');
+//     box.setAttribute('id', 'box-'+ peopleSection.id);
+//     placeToCreate.appendChild(box);
+// }
+//
+// createBoxOperation(peopleSection);
+
+function createAddForm(){
+
+}
