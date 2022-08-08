@@ -334,6 +334,51 @@ operation box
 //
 // createBoxOperation(peopleSection);
 
-function createAddForm(){
+const box = document.getElementsByClassName('box-people')[0];
+const toAddButton = document.getElementById('to-add-page');
+const hideButton = document.getElementById('hide-box-btn');
+
+function displaySection(container, btnAdd, btnHide){
+    btnAdd.addEventListener('click', function () {
+        container.style.display = 'flex';
+    })
+    btnHide.addEventListener('click', function () {
+        container.style.display = 'none';
+    })
+}
+
+displaySection(box, toAddButton, hideButton);
+
+/*
+add people
+ */
+const submitBtnAdd = document.getElementById('add');
+function onAddSubmit(){
+    let formData = readAddFormData();
+    addData(formData);
+}
+
+submitBtnAdd.addEventListener('click', function (e) {
+    e.preventDefault();
+    onAddSubmit();
+});
+
+function readAddFormData(){
+    let formData = {};
+    formData['name'] = document.getElementById('name').value;
+    formData['job'] = document.getElementById('job').value;
+    formData['date'] = document.getElementById('date').value;
+    console.log(formData);
+    return formData;
 
 }
+
+function addData(data){
+    people.push(data);
+    console.log(people);
+    return people;
+}
+
+
+
+

@@ -167,7 +167,7 @@ people search
 }
 .search-button {
     background-color: var(--green-color);
-    border-radius: 10%;
+    border-radius: 1rem;
     color: #FFFFFF;
     font-size: 1rem;
     padding: 0.2rem 1rem;
@@ -301,30 +301,41 @@ footer>ul {
 /*
 box operations
  */
-#box-people {
+.box-people {
     position: absolute;
-    width:97%;
-    height: 85%;
+    width:95%;
+    height: 84%;
     right: 0;
     top:10%;
-    /*display: none;*/
+    display: none;
     background-color: var(--green-color);
-    transition: all 0.5s linear;
+    transition-property: display;
+    transition: all .5s cubic-bezier(.4,0,.2,1);
     color: #FFFFFF;
 }
-
-#photo-section {
-    width: 40%;
+/*
+add box
+ */
+#photo-section, #add-people {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    align-content: center;
+}
+
+#photo-section {
+    width: 40%;
+}
+
+#add-people {
+    width: 60%;
 }
 
 #photo-section h1 {
-    font-size: 2rem;
-    padding: 2rem;
+    font-size: 2.5rem;
+    padding: 3rem 2rem;
 }
 
 #photo-section form {
@@ -346,10 +357,54 @@ box operations
     align-self: center;
     margin: 1rem;
 }
-
-#choose-photo::-webkit-file-upload-button {
+.upload-photo-btn {
+    font-size: 1.2rem;
+    margin-top: 4rem;
 }
 
+#choose-photo::-webkit-file-upload-button {
+    border: none;
+    padding: 0.2rem;
+    font-size: 1rem;
+}
+
+#add-people {
+    display: flex;
+    width: 60%;
+    height: 100%;
+    font-size: 1.2rem;
+}
+
+#form-add-people {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#form-add-people > label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+#form-add-people > label > input, #form-add-people > label > textarea {
+    background-color: #FFFFFF;
+    margin-left: 1rem;
+    font-size: 1.2rem;
+}
+
+#form-add-people > label > textarea {
+    width: 220px;
+    height: 150px;
+}
+
+#hide-box-btn {
+    color: #FFFFFF;
+    align-self: start;
+    position: absolute;
+    left: 1rem;
+}
 
 
 

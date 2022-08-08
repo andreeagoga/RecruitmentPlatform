@@ -93,13 +93,13 @@
             </form>
             <article class="operations">
                 <h2>Operations</h2>
-                <button type="submit" value="submit" class="btn search-button">
+                <button type="submit" value="submit" id="to-add-page" class="btn search-button">
                     <i class="fa-solid fa-user-plus"></i>
                 </button>
-                <button type="submit" value="submit" class="btn search-button">
+                <button type="submit" value="submit" id="to-edit-page" class="btn search-button">
                     <i class="fa-solid fa-user-pen"></i>
                 </button>
-                <button type="submit" value="submit" class="btn search-button">
+                <button type="submit" value="submit" id="to-delete-page" class="btn search-button">
                     <i class="fa-solid fa-user-xmark"></i>
                 </button>
             </article>
@@ -108,7 +108,7 @@
             <div class="list" id="list"></div>
             <div class="page-numbers" id="pagination"></div>
         </article>
-        <section id="box-people">
+        <section class="box-people">
             <aside id="photo-section">
                 <h1>Add new candidate</h1>
                 <i class="fa-solid fa-circle-user user-image"></i>
@@ -116,10 +116,40 @@
                     <label>
                         <input type="file" id="choose-photo" name="img" accept="image/*">
                     </label>
-                        <input type="submit" value="Upload" class="btn search-button upload-photo-btn">
                 </form>
+                <button class="btn" id="hide-box-btn">
+                    <i class="fa-solid fa-circle-chevron-right"></i>
+                </button>
             </aside>
-
+            <article id="add-people">
+                <form id="form-add-people">
+                    <label>First name
+                        <input type="text" name="name" class="search" id="name">
+                    </label>
+<!--                    <label>Last name-->
+<!--                        <input type="text" name="last-name" class="search">-->
+<!--                    </label>-->
+<!--                    <label>Email-->
+<!--                        <input type="text" name="email" class="search">-->
+<!--                    </label>-->
+<!--                    <label>Phone-->
+<!--                        <input type="text" name="phone" class="search">-->
+<!--                    </label>-->
+<!--                    <label>Location-->
+<!--                        <input type="text" name="location" class="search">-->
+<!--                    </label>-->
+                    <label>Job
+                        <input type="text" name="job" class="search" id="job">
+                    </label>
+<!--                    <label>Experience-->
+<!--                        <textarea name="experience" class="search"></textarea>-->
+<!--                    </label>-->
+                    <label>Date
+                        <input type="text" name="date" class="search" id="date">
+                    </label>
+                    <input type="submit" value="Add candidate" class="btn search-button upload-photo-btn" id="add">
+                </form>
+            </article>
         </section>
     </section>
     <section id="jobs">
