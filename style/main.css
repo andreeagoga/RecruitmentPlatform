@@ -220,38 +220,51 @@ people list
     width: calc(100% - 10rem);
 }
 
-#list ul, #ul-job-list {
+#list {
     flex-direction: column;
+    height: 80%;
     gap: normal;
 }
 
-.item-list, .item-job-list {
-    padding: 1rem;
+.people-item, .job-item {
+    padding: 2.5rem;
     border-bottom: 1px solid var(--light-grey-color);
+
 }
 
-.item-list:last-of-type, .item-job-list:last-of-type {
-    border-bottom: none;
-}
-
-.item-list:hover, .item-job-list:hover {
+.people-item:hover, .job-item:hover {
     background-color: var(--light-grey-color);
 }
 
-.item-list li {
+.people-item li {
     padding: 0.5rem;
+}
+
+.people-item {
+    display: flex;
+    justify-content: space-between;
 }
 
 #pagination {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10%;
+    height: 20%;
 }
 #pagination button {
     margin: 0.5rem;
-    padding: 0.2rem 0.5rem;
     align-self: center;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-pagination, .left-pagination {
+    background-color: transparent;
+    color: var(--green-color);
+    font-size: 2rem;
 }
 /*
 job list
@@ -264,6 +277,7 @@ job list
 
 #job-list {
     width: 100%;
+    height: 90%;
 }
 
 #jobs .operations {
@@ -277,11 +291,36 @@ job list
     margin-bottom: 1rem;
 }
 
-.item-job-list {
-    padding: 3rem 1rem;
+.job-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+}
+
+.job-item > li:first-of-type, .people-item >li:first-of-type {
+    font-size: 1.3rem;
+}
+
+.job-item > li > ul > li {
+    padding: 1rem 2rem;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: var(--green-color);
 
 }
 
+.job-item > li > ul{
+    gap: normal;
+}
+.job-item > li > ul > li:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.job-item > li > ul > li > p {
+    padding: 1rem;
+}
 
 /*
 footer style
@@ -305,13 +344,14 @@ box operations
     position: absolute;
     width:95%;
     height: 84%;
-    right: 0;
+    transform: translateX(200%);
     top:10%;
-    display: none;
+    display: flex;
     background-color: var(--green-color);
-    transition-property: display;
-    transition: all .5s cubic-bezier(.4,0,.2,1);
+    transition: transform 2s ease-in-out;
     color: #FFFFFF;
+    overflow-x: hidden;
+    scroll-snap-align: start;
 }
 /*
 add box
