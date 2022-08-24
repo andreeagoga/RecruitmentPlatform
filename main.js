@@ -285,6 +285,7 @@ function pageSetup(array, page, rows){
 
 }
 function createNewList(array){
+    peopleList.innerHTML='';
     let data = pageSetup(array, currentPage, rows);
     let items = data.paginatedItems;
 
@@ -345,10 +346,6 @@ function createButtons(page) {
                 <i class="fa-solid fa-circle-chevron-left"></i>
             </button>`
             + pagination.innerHTML;
-        // const leftButton = document.getElementsByClassName('left-pagination')[0];
-        // leftButton.addEventListener('click', function() {
-        //     createButtons(currentPage-1);
-        // });
     }
 
     if(currentPage !== pages) {
@@ -356,11 +353,6 @@ function createButtons(page) {
             <button value=${pages} class="search-button people-button right-pagination">
                <i class="fa-solid fa-circle-chevron-right"></i>
             </button>`;
-        // const rightButton = document.getElementsByClassName('right-pagination')[0];
-        //
-        // rightButton.addEventListener('click', function() {
-        //     createButtons(currentPage+1);
-        // })
 
     }
     console.log(currentPage);
@@ -376,6 +368,23 @@ function createButtons(page) {
             createNewList(people);
         })
     })
+
+    const leftButton = document.getElementsByClassName('left-pagination')[0];
+    if(leftButton){
+        leftButton.addEventListener('click', function() {
+            currentPage--;
+            createNewList(people);
+        });
+    }
+
+    const rightButton = document.getElementsByClassName('right-pagination')[0];
+    if(rightButton) {
+        rightButton.addEventListener('click', function () {
+            currentPage++;
+            createNewList(people)
+        });
+    }
+
 }
 
 /*
@@ -404,10 +413,15 @@ function readAddFormData(){
 console.log("c " + currentPage);
 console.log("p " + pages);
 function addData(data){
+    // if(currentPage  !==  pages){
+    console.log(people.length);
+    console.log(rows);
+    if(people.length % rows === 0){
+        pages++;
+    }
+    currentPage = pages;
     people.push(data);
 
-    if(currentPage  !==  pages){
-        currentPage = pages;
         console.log("c " + currentPage);
         console.log("p " + pages);
         createNewList(people);
@@ -421,7 +435,7 @@ function addData(data){
         // <li>${data.job}</li>
         // <li>${data.date}</li>`
         // newPeopleUl.innerHTML = itemData;
-    }
+    // }
 
 }
 

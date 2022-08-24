@@ -165,6 +165,11 @@ people search
     display: flex;
     padding: 7.5rem 4rem 4rem 4rem;
 }
+#people {
+    overflow-x: hidden;
+    scroll-snap-align: start;
+}
+
 .search-button {
     background-color: var(--green-color);
     border-radius: 1rem;
@@ -340,6 +345,8 @@ footer>ul {
 /*
 box operations
  */
+
+
 .box-people {
     position: absolute;
     width:95%;
@@ -350,8 +357,6 @@ box operations
     background-color: var(--green-color);
     transition: transform 2s ease-in-out;
     color: #FFFFFF;
-    overflow-x: hidden;
-    scroll-snap-align: start;
 }
 /*
 add box
