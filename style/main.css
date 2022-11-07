@@ -142,7 +142,7 @@ carousel style
     font-size: 2rem;
     color: var(--green-color);
     bottom: 1rem;
-    transition: all 0.5s;
+    /* transition: all 0.5s; */
 }
 
 .carousel-prev-button {
@@ -239,6 +239,10 @@ people list
 
 .people-item:hover, .job-item:hover {
     background-color: var(--light-grey-color);
+}
+
+.people-item:active, .job-item:active {
+    background-color: red;
 }
 
 .people-item li {

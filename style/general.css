@@ -43,7 +43,7 @@ input, button {
     background-color: transparent;
 }
 
-button:hover, button.active {
+button:hover,.btn:hover, .btn:active, button.active {
     opacity: 0.5;
 }
 

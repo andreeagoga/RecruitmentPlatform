@@ -355,8 +355,6 @@ function createButtons(page) {
             </button>`;
 
     }
-    console.log(currentPage);
-
 
     const allPageButtons = document.getElementsByClassName('number-button');
 
@@ -388,13 +386,38 @@ function createButtons(page) {
 }
 
 /*
+operation box
+ */
+
+const box = document.getElementsByClassName('box-people')[0];
+const toAddButton = document.getElementById('to-add-page');
+const hideButton = document.getElementById('hide-box-btn');
+const submitBtnAdd = document.getElementById('add');
+
+
+function displaySection(container, btnAdd, btnHide){
+    btnAdd.addEventListener('click', function () {
+        container.style.transform = 'translateX(0)';
+    })
+    btnHide.addEventListener('click', function () {
+        container.style.transform = 'translateX(200%)';
+    })
+    submitBtnAdd.addEventListener('click', function () {
+        container.style.transform = 'translateX(200%)';
+    })
+}
+
+displaySection(box, toAddButton, hideButton);
+
+/*
 add people
  */
-const submitBtnAdd = document.getElementById('add');
 function onAddSubmit(){
     let formData = readAddFormData();
-    addData(formData);
-    // createNewList();
+    addData(formData);    
+    let initialFormData = document.getElementById('form-add-people');
+    initialFormData.reset();
+
 }
 
 submitBtnAdd.addEventListener('click', function (e) {
@@ -410,34 +433,19 @@ function readAddFormData(){
     return formData;
 
 }
-console.log("c " + currentPage);
-console.log("p " + pages);
+
 function addData(data){
-    // if(currentPage  !==  pages){
-    console.log(people.length);
-    console.log(rows);
+
     if(people.length % rows === 0){
         pages++;
     }
     currentPage = pages;
     people.push(data);
 
-        console.log("c " + currentPage);
-        console.log("p " + pages);
-        createNewList(people);
-        // const newPeopleContainer = document.createElement('li');
-        // peopleList.appendChild(newPeopleContainer);
-        // const newPeopleUl = document.createElement('ul');
-        // newPeopleContainer.appendChild(newPeopleUl);
-        // newPeopleUl.classList.add('people-item');
-        // let itemData = `
-        // <li>${data.name}</li>
-        // <li>${data.job}</li>
-        // <li>${data.date}</li>`
-        // newPeopleUl.innerHTML = itemData;
-    // }
-
+    createNewList(people);
+       
 }
+
 
 /*
 filter people
@@ -450,9 +458,10 @@ function filterItems(targetInput){
     targetInput.addEventListener('keyup', (e) => {
         const searchString = e.target.value.toLowerCase();
         let filterArr = people.filter(elem => {
-            return elem.name.toLowerCase().includes(searchString) ||
-                elem.job.toLowerCase().includes(searchString) ||
-                elem.date.toLowerCase().includes(searchString);
+            return elem.name.toLowerCase().includes(searchString) 
+            // ||
+            //     elem.job.toLowerCase().includes(searchString) ||
+            //     elem.date.toLowerCase().includes(searchString);
         });
         console.log(filterArr);
         peopleList.innerHTML = '';
@@ -460,10 +469,23 @@ function filterItems(targetInput){
     });
 }
 
-filterItems(filterJobBar);
-filterItems(filterDateBar);
-filterItems(filterNameBar);
 
+
+filterItems(filterNameBar);
+// filterItems(filterJobBar);
+// filterItems(filterDateBar);
+
+/*
+edit people
+*/
+
+let onePeople = document.getElementsByClassName('people-item');
+console.log(onePeople);
+onePeople[0].classList.add('active');
+if(onePeople[0].classList.contains('active')){
+    console.log(onePeople[0]);
+    displaySection(box, toAddButton, hideButton);
+}
 
 
 /*
@@ -536,32 +558,6 @@ function createJobList(items){
 createJobList(jobs);
 
 
-/*
-operation box
- */
-// const peopleSection = document.getElementById('people');
-// function createBoxOperation(placeToCreate){
-//     const box = document.createElement('section');
-//     box.setAttribute('id', 'box-'+ peopleSection.id);
-//     placeToCreate.appendChild(box);
-// }
-//
-// createBoxOperation(peopleSection);
-
-const box = document.getElementsByClassName('box-people')[0];
-const toAddButton = document.getElementById('to-add-page');
-const hideButton = document.getElementById('hide-box-btn');
-
-function displaySection(container, btnAdd, btnHide){
-    btnAdd.addEventListener('click', function () {
-        container.style.transform = 'translateX(0)';
-    })
-    btnHide.addEventListener('click', function () {
-        container.style.transform = 'translateX(200%)';
-    })
-}
-
-displaySection(box, toAddButton, hideButton);
 
 
 
