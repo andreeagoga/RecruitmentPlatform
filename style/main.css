@@ -241,8 +241,8 @@ people list
     background-color: var(--light-grey-color);
 }
 
-.people-item:active, .job-item:active {
-    background-color: red;
+.people-item:active, .job-item:active>:nth-child(2){
+    background-color: var(--grey-color);
 }
 
 .people-item li {

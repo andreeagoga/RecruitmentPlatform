@@ -1,27 +1,33 @@
 /*
 Dropdown user menu
  */
+// const dropdownButton = document.getElementById('dropdown-button');
+// const dropdownList = document.getElementsByClassName('dropdown-content');
+// const dropdownMenu = document.getElementById('dropdown-menu');
+// const dropdown = document.getElementById('dropdown-user-menu');
+
+// function showDropdown() {
+//     dropdownMenu.classList.toggle('show');
+// }
+
+// function hideDropdown(event) {
+//     let openDropdown;
+//     if (!event.target.matches('.dropdown-menu')) {
+//         for (let i = 0; i < dropdownList.length; i++) {
+//             openDropdown = dropdownList[i];
+//             if (openDropdown.classList.contains('show')) {
+//                 openDropdown.classList.remove('show');
+//             }
+//         }
+//     }
+// }
+
+
+// dropdownButton.addEventListener("click", showDropdown);
+// window.addEventListener("mousedown", hideDropdown);
+
+import { hideDropdown, showDropdown } from "./dropdown.js";
 const dropdownButton = document.getElementById('dropdown-button');
-const dropdownList = document.getElementsByClassName('dropdown-content');
-const dropdownMenu = document.getElementById('dropdown-menu');
-const dropdown = document.getElementById('dropdown-user-menu');
-
-function showDropdown() {
-    dropdownMenu.classList.toggle('show');
-}
-
-function hideDropdown(event) {
-    let openDropdown;
-    if (!event.target.matches('.dropdown-menu')) {
-        for (let i = 0; i < dropdownList.length; i++) {
-            openDropdown = dropdownList[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
-        }
-    }
-}
-
 dropdownButton.addEventListener("click", showDropdown);
 window.addEventListener("mousedown", hideDropdown);
 
@@ -476,16 +482,24 @@ filterItems(filterNameBar);
 // filterItems(filterDateBar);
 
 /*
-edit people
+TO DO: edit people
 */
+const toEditButton = document.getElementById('to-edit-page');
 
 let onePeople = document.getElementsByClassName('people-item');
 console.log(onePeople);
-onePeople[0].classList.add('active');
-if(onePeople[0].classList.contains('active')){
-    console.log(onePeople[0]);
-    displaySection(box, toAddButton, hideButton);
+for (let i = 0; i < onePeople.length; i++){
+    onePeople[i].onclick = function (){
+        console.log(onePeople[i])
+        console.log(onePeople[i])   
+    }
 }
+// onePeople[0].classList.add('active');
+// if(onePeople[0].classList.contains('active')){
+//     console.log(onePeople[0]);
+//     displaySection(box, toEditButton, hideButton);
+
+// }
 
 
 /*
