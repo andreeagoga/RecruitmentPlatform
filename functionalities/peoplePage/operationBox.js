@@ -63,59 +63,19 @@ function onEditSubmit() {
 
 let checkboxes = document.getElementsByClassName("person-checked");
 
-let observer = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutation) {
-        if( mutation.type === 'childList') {
-            checkboxes = document.getElementsByClassName("person-checked");
-            for (let i = 0; i < checkboxes.length; i++) {
-                checkboxes[i].addEventListener('change', function() {
-                  if (this.checked) {
-                    console.log("checked");
-                  } else {
-                    console.log("not");
-                  }
-                });
-              }
-        }
-    });
-});
-
-observer.observe(document.body, {childList: true, subtree: true});
-
-console.dir(checkboxes);
-
-console.log(checkboxes.length)
-
-// for(let i = 0; i < checkboxes.length; i++) {
-//     const arr= [];
-//     console.log(checkboxes[i] + "check elem");
-// }
-
-// Array.from(checkboxes).forEach(function (checkbox) {
-//     console.log(checkbox + "here");
-// })
-
-for (let i = 0; i < checkboxes.length; i++) {
-  checkboxes[i].addEventListener('change', function() {
-    if (this.checked) {
-      console.log("checked");
-    } else {
-      console.log("not");
+function checkCheckbox(){
+    for (let i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].addEventListener('change', function() {
+            if (this.checked) {
+                this.setAttribute("checked", "");
+            } else {
+                this.removeAttribute("checked");
+            }
+        });
     }
-  });
 }
 
 
-// function editData() {
-//     for(let i = 0; i <= people.length; i++) {
-//         if( checkboxes[i].value === true) {
-//             console.log("checked");
-//         } else {
-//             console.log("not");
-//         }
-//     }
-// }
-
 // editData();
-export { displaySection, onAddSubmit }
+export { displaySection, onAddSubmit, checkCheckbox, checkboxes }
 

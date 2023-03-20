@@ -6,7 +6,7 @@ import { people as peopleList } from "./functionalities/peoplePage/people.js";
 
 import { jobs } from "./functionalities/jobsPage/jobs.js";
 
-import { displaySection, onAddSubmit } from "./functionalities/peoplePage/operationBox.js";
+import { displaySection, onAddSubmit, checkCheckbox, checkboxes } from "./functionalities/peoplePage/operationBox.js";
 
 import { createJobList } from "./functionalities/jobsPage/createJobList.js";
 
@@ -49,6 +49,7 @@ fetchPeople().then((response) => {
     createNewList(people, currentPage, rows, pages);
 });
 
+checkCheckbox();
 /*
 Create jobs list
  */
@@ -67,6 +68,10 @@ const submitBtnEdit = document.getElementById('add');
 displaySection(box, toAddButton, hideButton, submitBtnAdd);
 displaySection(box, toEditButton, hideButton, submitBtnAdd);
 
+setTimeout(checkCheckbox, 1000);
+// console.log("checkC %o", checkboxes);
+// console.log(JSON.stringify(checkboxes) + "here");
+// console.log(checkboxes.length);
 
 /*
 add people
@@ -75,6 +80,7 @@ submitBtnAdd.addEventListener('click', function (e) {
     e.preventDefault();
     onAddSubmit(currentPage, rows, pages);
 });
+
 
 /*
 filter people
