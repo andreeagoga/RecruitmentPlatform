@@ -1,5 +1,7 @@
 const jobs = [
     {
+        id: 1,
+        people: [],
         title: 'Frontend developer',
         status: {
             newStage: 100,
@@ -9,6 +11,8 @@ const jobs = [
         },
     },
     {
+        id: 2,
+        people: [],
         title: 'Backend developer',
         status: {
             newStage: 500,
@@ -18,6 +22,8 @@ const jobs = [
         },
     },
     {
+        id: 3,
+        people: [],
         title: 'IT Recruiter',
         status: {
             newStage: 150,
@@ -27,6 +33,8 @@ const jobs = [
         },
     },
     {
+        id: 4,
+        people: [],
         title: 'Fullstack developer',
         status: {
             newStage: 200,

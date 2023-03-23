@@ -47,13 +47,27 @@ fetchPeople().then((response) => {
     people = response
     pages = Math.ceil(people.length / rows);
     createNewList(people, currentPage, rows, pages);
-});
+}).then();
 
-checkCheckbox();
 /*
 Create jobs list
  */
 createJobList(jobs);
+
+/*
+assign people to jobs  
+*/
+function assignPeopleToJobs(){
+    people.forEach(person => {
+        const job = jobs.find(job => job.id === person.jobId);
+        person.jobTitle = job.title;
+        job.people.push(person); 
+    });
+}
+setTimeout(assignPeopleToJobs, 1000);
+console.log(jobs);
+console.log(people);
+
 
 /*
 operation box

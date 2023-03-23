@@ -1,183 +1,243 @@
 const people = [
     {
+        id: 1,
         name: 'Andreea',
-        job: 'IT Recruiter',
+        jobTitle: "",
+        jobId: 1,
         date: '29.07.2022',
         status: 'New Stage'
     },
     {
+        id: 2,
         name: 'Diana',
-        job: 'Frontend Developer',
+        jobTitle: "",
+        jobId: 2,
         date: '28.07.2022',
         status: 'New Stage'
         
     },
     {
+        id: 3,
         name: 'Mihai',
-        job: 'Backend Developer',
+        jobTitle: "",
+        jobId: 2,
         date: '30.07.2022',
         status: 'New Stage'
 
     },
     {
+        id: 4,
         name: 'Andrei',
-        job: 'IT Recruiter',
+        jobTitle: "",
+        jobId: 2,
         date: '28.07.2022',
         status: 'New Stage'
     },
     {
+        id: 5,
         name: 'Marius',
-        job: 'Fullstack Developer',
+        jobTitle: "",
+        jobId: 3,
         date: '29.07.2022',
         status: 'New Stage'
     },
     {
+        id: 6,
         name: 'Mihaela',
-        job: 'IT Recruiter',
+        jobTitle: "",
+        jobId: 3,
         date: '29.07.2022',
         status: 'New Stage'
     },
     {
+        id: 7,
         name: 'Antonia',
-        job: 'Frontend Developer',
+        jobTitle: "",
+        jobId: 3,
         date: '28.07.2022',
         status: 'New Stage'
     },
     {
+        id: 8,
         name: 'Ioana',
-        job: 'Backend Developer',
+        jobTitle: "",
+        jobId: 3,
         date: '30.07.2022',
         status: 'New Stage'
     },
     {
+        id: 9,
         name: 'Alin',
-        job: 'IT Recruiter',
+        jobTitle: "",
+        jobId: 3,
         date: '28.07.2022',
         status: 'New Stage'
     },
     {
+        id: 10,
         name: 'Teodora',
-        job: 'Fullstack Developer',
+        jobTitle: "",
+        jobId: 3,
         date: '29.07.2022',
         status: 'New Stage'
     },
     {
+        id: 10,
         name: 'Maria',
-        job: 'IT Recruiter',
+        jobTitle: "",
+        jobId: 3,
         date: '29.07.2022',
         status: 'New Stage'
     },
     {
+        id: 11,
         name: 'Mihaela',
-        job: 'Frontend Developer',
+        jobTitle: "",
+        jobId: 3,
         date: '28.07.2022',
         status: 'New Stage'
     },
     {
+        id: 12,
         name: 'Adrian',
-        job: 'Backend Developer',
+        jobTitle: "",
+        jobId: 3,
         date: '30.07.2022',
         status: 'New Stage'
     },
     {
+        id: 13,
         name: 'Bogdan',
-        job: 'IT Recruiter',
+        jobTitle: "",
+        jobId: 3,
         date: '28.07.2022',
         status: 'New Stage'
     },
     {
+        id: 14,
         name: 'Dan',
-        job: 'Fullstack Developer',
+        jobTitle: "",
+        jobId: 3,
         date: '29.07.2022',
         status: 'New Stage'
     },
     {
+        id: 15,
         name: 'Danut',
-        job: 'IT Recruiter',
+        jobTitle: "",
+        jobId: 4,
         date: '29.07.2022',
         status: 'New Stage'
     },
     {
+        id: 16,
         name: 'Ioan',
-        job: 'Frontend Developer',
+        jobTitle: "",
+        jobId: 4,
         date: '28.07.2022',
         status: 'New Stage'
     },
     {
+        id: 16,
         name: 'Catalin',
-        job: 'Backend Developer',
+        jobTitle: "",
+        jobId: 4,
         date: '30.07.2022',
         status: 'Hired Stage'
     },
     {
+        id: 17,
         name: 'Calin',
-        job: 'IT Recruiter',
+        jobTitle: "",
+        jobId: 4,
         date: '28.07.2022',
         status: 'New Stage'
     },
     {
+        id: 18,
         name: 'Ionut',
-        job: 'Fullstack Developer',
+        jobTitle: "",
+        jobId: 4,
         date: '29.07.2022',
         status: 'New Stage'
     },
     {
+        id: 19,
         name: 'Mihnea',
-        job: 'IT Recruiter',
+        jobTitle: "",
+        jobId: 4,
         date: '29.07.2022',
         status: 'Hired Stage'
     },
     {
+        id: 20,
         name: 'Ana',
-        job: 'Frontend Developer',
+        jobTitle: "",
+        jobId: 4,
         date: '28.07.2022',
         status: 'Hired Stage'
     },
     {
+        id: 21,
         name: 'Anamaria',
-        job: 'Backend Developer',
+        jobTitle: "",
+        jobId: 4,
         date: '30.07.2022',
         status: 'Offer Stage'
     },
     {
+        id: 22,
         name: 'Florin',
-        job: 'IT Recruiter',
+        jobTitle: "",
+        jobId: 1,
         date: '28.07.2022',
         status: 'Offer Stage'
     },
     {
+        id: 23,
         name: 'Florina',
-        job: 'Fullstack Developer',
+        jobTitle: "",
+        jobId: 1,
         date: '29.07.2022',
         status: 'Interview Stage'
     },
     {
+        id: 24,
         name: 'Marinela',
-        job: 'IT Recruiter',
+        jobTitle: "",
+        jobId: 1,
         date: '29.07.2022',
         status: 'Offer Stage'
     },
     {
+        id: 25,
         name: 'Florentina',
-        job: 'Frontend Developer',
+        jobTitle: "",
+        jobId: 1,
         date: '28.07.2022',
         status: 'New Stage'
     },
     {
+        id: 26,
         name: 'Ionel',
-        job: 'Backend Developer',
+        jobTitle: "",
+        jobId: 1,
         date: '30.07.2022',
         status: 'Interview Stage'
     },
     {
+        id: 27,
         name: 'Madalin',
-        job: 'IT Recruiter',
+        jobTitle: "",
+        jobId: 1,
         date: '28.07.2022',
         status: 'Interview Stage'
     },
     {
+        id: 28,
         name: 'Madalina',
-        job: 'Fullstack Developer',
+        jobTitle: "",
+        jobId: 1,
         date: '29.07.2022',
         status: 'Interview Stage'
     },

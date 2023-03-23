@@ -60,19 +60,26 @@ function onEditSubmit() {
     editData();
 
 }
-
+const peopleList = document.getElementsByClassName("people-item");
+console.log(peopleList);
 let checkboxes = document.getElementsByClassName("person-checked");
 
 function checkCheckbox(){
-    for (let i = 0; i < checkboxes.length; i++) {
-        checkboxes[i].addEventListener('change', function() {
-            if (this.checked) {
-                this.setAttribute("checked", "");
-            } else {
-                this.removeAttribute("checked");
-            }
-        });
-    }
+    let checkedItems = [];
+    for (let i = 0; i < peopleList.length; i++){
+        
+        // for (let i = 0; i < checkboxes.length; i++) {
+        //     checkboxes[i].addEventListener('change', function() {
+        //         if (this.checked) {
+        //             this.setAttribute("checked", "");
+        //             checkedItems.push(checkboxes[i]);
+        //             console.log(checkedItems);
+        //         } else {
+        //             this.removeAttribute("checked");
+        //         }
+        //     });
+        // }
+    }   
 }
 
 

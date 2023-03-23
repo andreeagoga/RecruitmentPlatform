@@ -32,7 +32,7 @@ function createNewList(array, currentPage, rows, pages){
         item.appendChild(itemList);
         let list = `
             <li>${items[i].name}</li>
-            <li>${items[i].job}</li>
+            <li>${items[i].jobTitle}</li>
             <li>${items[i].date}</li>
             <li><input type="checkbox" class="person-checked" ></li>
         `;
