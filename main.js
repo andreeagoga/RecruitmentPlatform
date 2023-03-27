@@ -2,9 +2,9 @@ import { hideDropdown, showDropdown } from "./functionalities/firstPage/dropdown
 
 import { goToFirstSlide, goToPreviousSlide } from "./functionalities/firstPage/carousel.js";
 
-import { people as peopleList } from "./functionalities/peoplePage/people.js";
+import { people as peopleList, STATUS } from "./functionalities/peoplePage/people.js";
 
-import { jobs } from "./functionalities/jobsPage/jobs.js";
+import { jobs as jobsList } from "./functionalities/jobsPage/jobs.js";
 
 import { displaySection, onAddSubmit, checkCheckbox, checkboxes } from "./functionalities/peoplePage/operationBox.js";
 
@@ -35,38 +35,67 @@ Create people list
  */
 let currentPage = 1;
 let rows = 5;
-let people = [];
+// let people = [];
 let pages = 0;
 function fetchPeople() {
+     
     return new Promise((resolve, reject) => {
-        resolve(peopleList);
-    })
+        setTimeout(() => {resolve(peopleList)}, 100);
+    });
 };
+function fetchJobs() {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {resolve(jobsList)}, 100);
+        });
+    
+};
+const peopleData = [];
+const jobsData = [];
 
-fetchPeople().then((response) => {
-    people = response
-    pages = Math.ceil(people.length / rows);
-    createNewList(people, currentPage, rows, pages);
-}).then();
+// Promise.all([
+//     fetchPeople(), fetchJobs()
+// ]).then(([people, jobs] ) => {
+//     people.forEach(person => {
+//         const job = jobs.find(job => job.id === person.jobId);
+//         data.push({...person, jobTitle:job.title});
+//     });
+//     pages = Math.ceil(people.length / rows);
+//     createNewList(data, currentPage, rows, pages);
+//     createJobList(jobs);
+    
+// })
+
+const [people, jobs] = await Promise.all([
+    fetchPeople(), fetchJobs()
+]);
+people.forEach(person => {
+    const job = jobs.find(job => job.id === person.jobId);
+    peopleData.push({...person, jobTitle:job.title});
+});
+pages = Math.ceil(people.length / rows);
+createNewList(peopleData, currentPage, rows, pages);
+jobs.forEach((job) => {
+    const peopleOnJob = people.filter(person => person.jobId === job.id);
+    const peopleGroupedByStatus = Object.values(STATUS).reduce((res, val) => {
+        res[val] = [];
+        return res;
+    }, {});
+    peopleOnJob.forEach(person => {
+        peopleGroupedByStatus[person.status].push(person);
+    });
+    jobsData.push({...job, ...peopleGroupedByStatus});
+});
+createJobList(jobsData);
+// fetchPeople().then((response) => {
+//     people = response
+//     pages = Math.ceil(people.length / rows);
+//     createNewList(people, currentPage, rows, pages);
+// }).then();
 
 /*
 Create jobs list
  */
-createJobList(jobs);
-
-/*
-assign people to jobs  
-*/
-function assignPeopleToJobs(){
-    people.forEach(person => {
-        const job = jobs.find(job => job.id === person.jobId);
-        person.jobTitle = job.title;
-        job.people.push(person); 
-    });
-}
-setTimeout(assignPeopleToJobs, 1000);
-console.log(jobs);
-console.log(people);
+// createJobList(jobs);
 
 
 /*

@@ -1,5 +1,3 @@
-import { people } from "./people.js";
-
 // let currentPage = 1;
 // let rows = 5;
 let lessPages = 2;
@@ -39,10 +37,10 @@ function createNewList(array, currentPage, rows, pages){
         peopleItem[i].innerHTML = list;
 
     }
-    createButtons(currentPage, pages, rows);
+    createButtons(array, currentPage, pages, rows);
 }
 
-function createButtons(currentPage, pages, rows) {
+function createButtons(data, currentPage, pages, rows) {
     pagination.innerHTML = '';
     let activePage;
     let maxLeft = currentPage - Math.floor(lessPages / 2);
@@ -95,7 +93,7 @@ function createButtons(currentPage, pages, rows) {
             peopleList.innerHTML = '';
             currentPage = Number(this.value);
 
-            createNewList(people, currentPage, rows, pages);
+            createNewList(data, currentPage, rows, pages);
         })
     })
 
@@ -103,7 +101,7 @@ function createButtons(currentPage, pages, rows) {
     if(leftButton){
         leftButton.addEventListener('click', function() {
             currentPage--;
-            createNewList(people, currentPage, rows, pages);
+            createNewList(data, currentPage, rows, pages);
         });
     }
 
@@ -111,7 +109,7 @@ function createButtons(currentPage, pages, rows) {
     if(rightButton) {
         rightButton.addEventListener('click', function () {
             currentPage++;
-            createNewList(people, currentPage, rows, pages)
+            createNewList(data, currentPage, rows, pages)
         });
     }
 

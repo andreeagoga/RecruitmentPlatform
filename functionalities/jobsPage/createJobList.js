@@ -11,10 +11,10 @@ function createJobList(items){
             <li>${items[i].title}</li>
             <li>
                 <ul>
-                    <li>New Stage <br><p> ${items[i].status.newStage}</p></li>
-                    <li>Interview Stage <br><p> ${items[i].status.interviewStage}</li>
-                    <li>Offer Stage <br><p> ${items[i].status.offerStage}</li>
-                    <li>Hired <br><p> ${items[i].status.hired}</li>
+                    <li>New Stage <br><p> ${items[i].new.length}</p></li>
+                    <li>Interview Stage <br><p> ${items[i].interview.length}</li>
+                    <li>Offer Stage <br><p> ${items[i].offer.length}</li>
+                    <li>Hired <br><p> ${items[i].hired.length}</li>
                 </ul>
             </li>
          
